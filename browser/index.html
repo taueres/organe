@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Organe</title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/newStyle.css" />
 </head>
 <body>
-    <h1>Organe, yeah!</h1>
+    <h1>Organe document manager</h1>
     <div id="organe-wrapper">
-        <div class="folder first-folder">
-            <div class="folder-name">
-                <p>Folder name</p>
-            </div>
-            <div class="page-list">
-                <ol>
-                    <li>First page</li>
-                    <li>Second page</li>
-                </ol>
-            </div>
-        </div>
-        <div class="folder second-folder">
-            <div class="folder-name">
-                <p>Folder name</p>
-            </div>
-            <div class="page-list">
-                <ol>
-                    <li>First page</li>
-                    <li>Second page</li>
-                </ol>
+        <div class="folder first-folder col-md-5">
+            <div class="panel panel-default">
+                <div class="folder-name panel-heading">
+                    <h3 class="panel-title">Folder name</h3>
+                </div>
+                <div class="page-list panel-body">
+                    <ol>
+                        <li>First page</li>
+                        <li>Second page</li>
+                    </ol>
+                </div>
             </div>
         </div>
-        <div class="folder-list">
-            <ol>
-                <li>First folder</li>
-                <li>Second folder</li>
-            </ol>
+        <div class="folder second-folder col-md-5">
+            <div class="panel panel-default">
+                <div class="folder-name panel-heading">
+                    <h3 class="panel-title">Folder name</h3>
+                </div>
+                <div class="page-list panel-body">
+                    <ol>
+                        <li>First page</li>
+                        <li>Second page</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Folder list</h3>
+                </div>
+                <div class="folder-list panel-body">
+                    <ol class="list-group">
+                        <li class="list-group-item">First folder</li>
+                        <li class="list-group-item">Second folder</li>
+                    </ol>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!--<script src="js/bootstrap.min.js"></script>-->
     <script src="js/app.js"></script>
 </body>
 </html>

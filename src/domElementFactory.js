@@ -44,10 +44,10 @@ Factory.prototype.createPageListElement = function (folder) {
 };
 
 /**
- * @param folder {Folder}
+ * @param folderName {string}
  */
-Factory.prototype.createFolderNameElement = function (folder) {
-    let content = `<p>${folder.name}</p>`;
+Factory.prototype.createFolderNameElement = function (folderName) {
+    let content = `<h3 class="panel-title">${folderName}</h3>`;
     return createElementFromHtml(content, this.document);
 };
 
@@ -55,7 +55,7 @@ Factory.prototype.createFolderNameElement = function (folder) {
  * @param folder {Folder}
  */
 Factory.prototype.createFolderEntryElement = function (folder) {
-    let content = `<li draggable="true">${folder.name}</li>`;
+    let content = `<li draggable="true" class="list-group-item">${folder.name}</li>`;
     let element = createElementFromHtml(content, this.document);
 
     folder.folderListEntryElement = element;
@@ -68,7 +68,7 @@ Factory.prototype.createFolderEntryElement = function (folder) {
  * @param folderList {FolderList}
  */
 Factory.prototype.createFolderListElement = function (folderList) {
-    let content = '<ol></ol>';
+    let content = '<ol class="list-group"></ol>';
     let folderListElement = createElementFromHtml(content, this.document);
 
     folderList.forEach(folder => {
