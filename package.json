@@ -1,0 +1,17 @@
+{
+  "name": "organe",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browser": "browserify src/browser/index.js -o browser/js/app.js"
+  },
+  "author": "Sergio Santoro",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "browserify": "^12.0.2",
+    "jquery": "^2.2.0",
+    "sortablejs": "^1.4.2"
+  }
+}
