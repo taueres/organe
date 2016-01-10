@@ -96,6 +96,11 @@ Factory.prototype.createFolderEntryElement = function (folder) {
     return element;
 };
 
+Factory.prototype.createPageCounterElement = function () {
+    let content = `<span class="badge">0</span>`;
+    return createElementFromHtml(content, this.document);
+};
+
 /**
  * @param folderList {FolderList}
  */
