@@ -39,7 +39,7 @@ ActiveFolder.prototype.activateFolder = function (folder) {
     this.pageList.append(pageList);
 
     this.folderName.empty();
-    let folderName = this.elementFactory.createFolderNameElement(folder.name);
+    let folderName = this.elementFactory.createFolderNameElement(folder);
     this.folderName.append(folderName);
 
     Sortable.create(pageList, {
@@ -52,9 +52,13 @@ ActiveFolder.prototype.activateFolder = function (folder) {
 
 ActiveFolder.prototype.empty = function () {
     this.folder = null;
+
     this.pageList.empty();
+    let pageList = this.elementFactory.createFolderPlaceholderPageListElement();
+    this.pageList.append(pageList);
+
     this.folderName.empty();
-    let folderName = this.elementFactory.createFolderNameElement('No folder selected');
+    let folderName = this.elementFactory.createFolderPlaceholderNameElement();
     this.folderName.append(folderName);
 };
 

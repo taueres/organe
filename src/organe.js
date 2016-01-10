@@ -3,6 +3,7 @@
 let domElementFactory = require('./domElementFactory');
 let folderRepository = require('./folderRepository');
 let ActiveFolderCollection = require('./browser/activeFolderCollection');
+let UiFolderList = require('./browser/uiFolderList');
 let pageMover = require('./pageMover');
 let EventEmitter = require('events');
 
@@ -10,7 +11,11 @@ let Organe = function Organe($appElement, document) {
     this.eventEmitter = new EventEmitter();
 
     this.domElemFactory = new domElementFactory(document);
-    this.folderListElement = $appElement.find('.folder-list');
+
+    this.uiFolderList = new UiFolderList(
+        $appElement.find('.folder-list'),
+        this.domElemFactory
+    );
 
     let activeFolderElements = [
         $appElement.find('.first-folder'),
@@ -34,13 +39,10 @@ let Organe = function Organe($appElement, document) {
 };
 
 Organe.prototype.start = function () {
-    this.folderList = folderRepository.getFolderList();
-
     this.activeFolderCollection.init();
 
-    this.folderListElement.empty();
-    let folderListElement = this.domElemFactory.createFolderListElement(this.folderList);
-    this.folderListElement.append(folderListElement);
+    this.folderList = folderRepository.getFolderList();
+    this.uiFolderList.render(this.folderList);
 };
 
 /**

@@ -19,6 +19,10 @@ let createElementFromHtml = function (html, document) {
  * @param page {Page}
  */
 Factory.prototype.createPageElement = function (page) {
+    if (null != page.element) {
+        return page.element;
+    }
+
     let content = `<li><img src="${page.thumbPath}"></li>`;
     let element = createElementFromHtml(content, this.document);
 
@@ -32,6 +36,10 @@ Factory.prototype.createPageElement = function (page) {
  * @param folder {Folder}
  */
 Factory.prototype.createPageListElement = function (folder) {
+    if (null != folder.pageListElement) {
+        return folder.pageListElement;
+    }
+
     let content = '<ol></ol>';
     let pageListElement = createElementFromHtml(content, this.document);
 
@@ -47,10 +55,27 @@ Factory.prototype.createPageListElement = function (folder) {
 };
 
 /**
- * @param folderName {string}
+ * @param folder {Folder}
  */
-Factory.prototype.createFolderNameElement = function (folderName) {
-    let content = `<h3 class="panel-title">${folderName}</h3>`;
+Factory.prototype.createFolderNameElement = function (folder) {
+    if (null != folder.folderNameElement) {
+        return folder.folderNameElement;
+    }
+
+    let content = `<h3 class="panel-title">${folder.name}</h3>`;
+    let element = createElementFromHtml(content, this.document);
+    folder.folderNameElement = element;
+
+    return element;
+};
+
+Factory.prototype.createFolderPlaceholderNameElement = function () {
+    let content = '<h3 class="panel-title">No folder selected</h3>';
+    return createElementFromHtml(content, this.document);
+};
+
+Factory.prototype.createFolderPlaceholderPageListElement = function () {
+    let content = '<p>Drop here one entry of folder list to open it.</p>';
     return createElementFromHtml(content, this.document);
 };
 
@@ -58,6 +83,10 @@ Factory.prototype.createFolderNameElement = function (folderName) {
  * @param folder {Folder}
  */
 Factory.prototype.createFolderEntryElement = function (folder) {
+    if (null != folder.folderListEntryElement) {
+        return folder.folderListEntryElement;
+    }
+
     let content = `<li draggable="true" class="list-group-item">${folder.name}</li>`;
     let element = createElementFromHtml(content, this.document);
 

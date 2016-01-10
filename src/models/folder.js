@@ -13,6 +13,7 @@ let Folder = function Folder(id, name, pageList) {
 
     this.pageListElement = null;
     this.folderListEntryElement = null;
+    this.folderNameElement = null;
 };
 
 Folder.prototype.getNumberOfPages = function getNumberOfPages() {
