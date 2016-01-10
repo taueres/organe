@@ -1,10 +1,16 @@
+#organe-wrapper .folder, #organe-wrapper .folder-list-wrapper {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
 #organe-wrapper .page-list {
     min-height: 500px;
 }
 
 #organe-wrapper .page-list ol {
+    display: block;
     list-style-type: none;
-    height: 100%;
+    min-height: 500px;
     width: 100%;
     padding-left: 0;
 }

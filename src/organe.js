@@ -56,11 +56,18 @@ Organe.prototype._onFolderDroppedToBecomeActive = function (folderId, activeFold
 };
 
 Organe.prototype._onPageDropped = function (event) {
+    console.log(event);
     let page = event.item.organeModel;
-    let destFolder = event.to.organeModel;
-    let position = event.newIndex;
+    let fromFolder = event.from.organeModel;
+    let toFolder = event.to.organeModel;
+    let fromPosition = event.oldIndex;
+    let toPosition = event.newIndex;
 
-    pageMover.movePageToFolder(page, destFolder, position);
+    if (fromFolder.id !== toFolder.id) {
+        pageMover.movePageToFolder(page, toFolder, toPosition);
+    } else if (fromPosition !== toPosition && page.folder.id === toFolder.id) {
+        pageMover.sortPageInFolder(page, event.newIndex);
+    }
 };
 
 module.exports = Organe;

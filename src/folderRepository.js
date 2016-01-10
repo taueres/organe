@@ -17,9 +17,12 @@ let getFolderList = function getFolderList() {
     otherFolder.addPage(otherFirst);
     otherFolder.addPage(otherSecond);
 
+    let trash = new Folder(3, 'Cestino');
+
     let folderList = new FolderList();
     folderList.addFolder(mainFolder);
     folderList.addFolder(otherFolder);
+    folderList.addFolder(trash);
 
     return folderList;
 };

@@ -39,4 +39,10 @@ PageList.prototype.forEach = function forEach(fn) {
     this.pages.forEach(fn);
 };
 
+PageList.prototype.sortPage = function sortPage(page, newPosition) {
+    let index = this.pages.indexOf(page);
+    this.pages.splice(index, 1);
+    this.pages.splice(newPosition, 0, page);
+};
+
 module.exports = PageList;
