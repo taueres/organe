@@ -1,3 +1,25 @@
-.page-list {
-    height: 500px;
+#organe-wrapper .page-list {
+    min-height: 500px;
+}
+
+#organe-wrapper .page-list ol {
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 0;
+}
+
+#organe-wrapper .page-list li {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    width: 120px;
+    height: 180px;
+    border: solid black thin;
+    margin: 2px;
+}
+
+#organe-wrapper .page-list li img {
+    width: 118px;
+    height: 178px;
 }

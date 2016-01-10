@@ -15,8 +15,11 @@ let createElementFromHtml = function (html, document) {
     return wrapper.firstElementChild;
 };
 
+/**
+ * @param page {Page}
+ */
 Factory.prototype.createPageElement = function (page) {
-    let content = `<li>Page ${page.id}</li>`;
+    let content = `<li><img src="${page.thumbPath}"></li>`;
     let element = createElementFromHtml(content, this.document);
 
     page.element = element;
