@@ -6,7 +6,7 @@ let ActiveFolderCollection = require('./browser/activeFolderCollection');
 let pageMover = require('./pageMover');
 let EventEmitter = require('events');
 
-let Organe = function Organ($appElement, document) {
+let Organe = function Organe($appElement, document) {
     this.eventEmitter = new EventEmitter();
 
     this.domElemFactory = new domElementFactory(document);
