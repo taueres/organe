@@ -20,11 +20,18 @@ let getFolderList = function getFolderList(folderBuilder) {
     otherFolder.addPage(otherFirst);
     otherFolder.addPage(otherSecond);
 
-    let trash = folderBuilder.newFolder(3, 'Cestino');
+    let thirdFolder = folderBuilder.newFolder(3, 'Attestato');
+    let pageFirst = new Page(21, 'img/extra1.png');
+    let pageSecond = new Page(22, 'img/extra2.png');
+    thirdFolder.addPage(pageFirst);
+    thirdFolder.addPage(pageSecond);
+
+    let trash = folderBuilder.newFolder(4, 'Cestino');
 
     let folderList = new FolderList();
     folderList.addFolder(mainFolder);
     folderList.addFolder(otherFolder);
+    folderList.addFolder(thirdFolder);
     folderList.addFolder(trash);
 
     return folderList;

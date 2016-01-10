@@ -32,6 +32,7 @@ let ActiveFolder = function ActiveFolder($folderElement, domElementFactory, even
  * @param folder {Folder}
  */
 ActiveFolder.prototype.activateFolder = function (folder) {
+    let previousFolder = this.folder;
     this.folder = folder;
 
     this.pageList.empty();
@@ -48,6 +49,11 @@ ActiveFolder.prototype.activateFolder = function (folder) {
             this.eventEmitter.emit('page_dropped', event);
         }
     });
+
+    this.eventEmitter.emit('folder_activated', folder);
+    if (null != previousFolder) {
+        this.eventEmitter.emit('folder_deactivated', previousFolder);
+    }
 };
 
 ActiveFolder.prototype.empty = function () {

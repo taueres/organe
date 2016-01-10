@@ -17,7 +17,8 @@ let Organe = function Organe($appElement, document) {
 
     this.uiFolderList = new UiFolderList(
         $appElement.find('.folder-list'),
-        this.domElemFactory
+        this.domElemFactory,
+        this.eventEmitter
     );
 
     let activeFolderElements = [
@@ -67,7 +68,6 @@ Organe.prototype._onFolderDroppedToBecomeActive = function (folderId, activeFold
 };
 
 Organe.prototype._onPageDropped = function (event) {
-    console.log(event);
     let page = event.item.organeModel;
     let fromFolder = event.from.organeModel;
     let toFolder = event.to.organeModel;
