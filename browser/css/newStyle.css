@@ -1,3 +1,16 @@
+#organe-wrapper .page-list li .page-zoom-overlay {
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: rgba(0, 0, 0, 0.4) url('../img/zoom-icon.png') no-repeat center center;
+}
+
+#organe-wrapper .page-list li:hover .page-zoom-overlay {
+    visibility: visible;
+}
+
 #organe-wrapper .folder, #organe-wrapper .folder-list-wrapper {
     padding-left: 2px;
     padding-right: 2px;

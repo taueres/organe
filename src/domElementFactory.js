@@ -23,7 +23,14 @@ Factory.prototype.createPageElement = function (page) {
         return page.element;
     }
 
-    let content = `<li><img src="${page.thumbPath}"></li>`;
+    let content = `
+        <li>
+            <div class="page-zoom-overlay"></div>
+            <a href="${page.imgPath}" class="page-large-img-anchor">
+                <img src="${page.thumbPath}">
+            </a>
+        </li>
+    `;
     let element = createElementFromHtml(content, this.document);
 
     page.element = element;

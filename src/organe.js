@@ -6,6 +6,7 @@ let FolderBuilder = require('./models/folderBuilder');
 let ActiveFolderCollection = require('./userInterface/activeFolderCollection');
 let UiFolderList = require('./userInterface/uiFolderList');
 let PageCounterBuilder = require('./userInterface/pageCounterBuilder');
+let PagePopup = require('./userInterface/pagePopup');
 let pageMover = require('./pageMover');
 let EventEmitter = require('events');
 
@@ -14,6 +15,7 @@ let Organe = function Organe($appElement, document) {
     this.domElemFactory = new ElementFactory(document);
     this.pageCounterBuilder = new PageCounterBuilder(this.domElemFactory, this.eventEmitter);
     this.folderBuilder = new FolderBuilder(this.eventEmitter);
+    this.pagePopup = new PagePopup();
 
     this.uiFolderList = new UiFolderList(
         $appElement.find('.folder-list'),
@@ -53,6 +55,11 @@ Organe.prototype._listenEvents = function () {
     });
 
     this.eventEmitter.on('page_dropped', this._onPageDropped.bind(this));
+
+    this.eventEmitter.on(
+        'folder_activated',
+        this.pagePopup.addPopupToPagesOfFolder.bind(this.pagePopup)
+    );
 };
 
 /**
