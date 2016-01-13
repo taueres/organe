@@ -18,7 +18,7 @@ PageList.prototype.getNumberOfPages = function getNumberOfPages() {
 
 PageList.prototype.addPage = function addPage(page, insertPos) {
     if (undefined === insertPos) {
-        insertPos = this.pages.length - 1;
+        insertPos = this.pages.length;
     }
 
     page.folder = this.folder;
@@ -29,6 +29,10 @@ PageList.prototype.addPage = function addPage(page, insertPos) {
 
 PageList.prototype.removePage = function removePage(page) {
     let index = this.pages.indexOf(page);
+    if (-1 === index) {
+        throw new Error('Cannot remove nonexistent page');
+    }
+
     this.pages.splice(index, 1);
     page.folder = null;
 
