@@ -45,6 +45,7 @@ ActiveFolder.prototype.activateFolder = function (folder) {
 
     Sortable.create(pageList, {
         group: 'pages',
+        animation: 150,
         onSort: (event) => {
             this.eventEmitter.emit('page_dropped', event);
         }

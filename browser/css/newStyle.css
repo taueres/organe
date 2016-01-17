@@ -11,6 +11,12 @@
     visibility: visible;
 }
 
+#organe-wrapper .page-list li.sortable-chosen .page-zoom-overlay,
+#organe-wrapper .page-list li.sortable-ghost .page-zoom-overlay {
+    visibility: visible;
+    background: rgba(0, 103, 255, 0.4);
+}
+
 #organe-wrapper .folder, #organe-wrapper .folder-list-wrapper {
     padding-left: 2px;
     padding-right: 2px;
