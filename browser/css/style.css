@@ -1,71 +1,50 @@
-* {
-    margin: 0;
-    padding: 0;
+#organe-wrapper .page-list li .page-zoom-overlay {
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: rgba(0, 0, 0, 0.4) url('../img/zoom-icon.png') no-repeat center center;
 }
 
-#organe-wrapper {
-    width: 100%;
-    height: 500px;
+#organe-wrapper .page-list li:hover .page-zoom-overlay {
+    visibility: visible;
 }
 
-#organe-wrapper .folder {
-    padding: 5px;
-    box-sizing: border-box;
-    width: 40%;
-    height: 100%;
-    border: solid black thin;
+#organe-wrapper .page-list li.sortable-chosen .page-zoom-overlay,
+#organe-wrapper .page-list li.sortable-ghost .page-zoom-overlay {
+    visibility: visible;
+    background: rgba(0, 103, 255, 0.4);
+}
+
+#organe-wrapper .folder, #organe-wrapper .folder-list-wrapper {
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 #organe-wrapper .page-list {
-    width: 100%;
-    height: 100%;
-}
-
-#organe-wrapper .folder-list {
-    padding: 3px;
-    box-sizing: border-box;
-    width: 20%;
-    height: 100%;
-    border: solid black thin;
-    float: right;
+    min-height: 500px;
 }
 
 #organe-wrapper .page-list ol {
+    display: block;
     list-style-type: none;
-    height: 100%;
+    min-height: 500px;
     width: 100%;
+    padding-left: 0;
 }
 
 #organe-wrapper .page-list li {
-    display: block;
-    float: left;
-    width: 100px;
-    height: 100px;
-    border: solid green thin;
-    margin: 2px;
-}
-
-#organe-wrapper .folder-list ol {
-    list-style-type: none;
-    height: 100%;
-    width: 100%;
-}
-
-#organe-wrapper .folder-list li {
     box-sizing: border-box;
     display: block;
     float: left;
-    width: 100%;
-    height: 50px;
-    border: solid red thin;
+    width: 120px;
+    height: 180px;
+    border: solid black thin;
     margin: 2px;
 }
 
-#organe-wrapper .first-folder {
-    float: left;
+#organe-wrapper .page-list li img {
+    width: 118px;
+    height: 178px;
 }
-
-#organe-wrapper .second-folder {
-    float: left;
-}
-

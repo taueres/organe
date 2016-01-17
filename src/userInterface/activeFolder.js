@@ -35,7 +35,7 @@ ActiveFolder.prototype.activateFolder = function (folder) {
     let previousFolder = this.folder;
     this.folder = folder;
 
-    this.pageList.empty();
+    this.pageList.get(0).innerHTML = '';
     let pageList = this.elementFactory.createPageListElement(folder);
     this.pageList.append(pageList);
 

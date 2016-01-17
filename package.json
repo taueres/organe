@@ -4,6 +4,7 @@
   "description": "Document manager for browsers, link pages to documents via drag & drop",
   "main": "src/organe.js",
   "scripts": {
+    "postinstall": "node ./tools/setupStyleSheets.js",
     "test": "mocha test/**",
     "browser": "browserify -t [ babelify --presets [ es2015 ] ] -o browser/js/app.js src/browser/index.js",
     "browser-dist": "npm run browser && uglifyjs -o browser/js/app.min.js browser/js/app.js"
@@ -13,6 +14,7 @@
   "dependencies": {
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
+    "bootstrap": "^3.3.6",
     "browserify": "^12.0.2",
     "jquery": "^2.2.0",
     "magnific-popup": "^1.0.1",

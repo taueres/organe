@@ -9,22 +9,22 @@ let Page = require('./models/page');
  */
 let getFolderList = function getFolderList(folderBuilder) {
     let mainFolder = folderBuilder.newFolder(1, 'Informativa privacy');
-    let mainFirst = new Page(1, 'img/page1.png', 'img/page-large.png');
-    let mainSecond = new Page(2, 'img/page2.png', 'img/page-large.png');
-    mainFolder.addPage(mainFirst);
-    mainFolder.addPage(mainSecond);
+    for (let i = 1; i <= 3; i++) {
+        let page = new Page(i, `img/small/${i}.png`, `img/large/${i}.png`);
+        mainFolder.addPage(page);
+    }
 
     let otherFolder = folderBuilder.newFolder(2, 'Modulo adesione');
-    let otherFirst = new Page(11, 'img/page11.png', 'img/page-large.png');
-    let otherSecond = new Page(12, 'img/page12.png', 'img/page-large.png');
-    otherFolder.addPage(otherFirst);
-    otherFolder.addPage(otherSecond);
+    for (let i = 4; i <= 6; i++) {
+        let page = new Page(i, `img/small/${i}.png`, `img/large/${i}.png`);
+        otherFolder.addPage(page);
+    }
 
     let thirdFolder = folderBuilder.newFolder(3, 'Attestato');
-    let pageFirst = new Page(21, 'img/extra1.png', 'img/page-large.png');
-    let pageSecond = new Page(22, 'img/extra2.png', 'img/page-large.png');
-    thirdFolder.addPage(pageFirst);
-    thirdFolder.addPage(pageSecond);
+    for (let i = 7; i <= 10; i++) {
+        let page = new Page(i, `img/small/${i}.png`, `img/large/${i}.png`);
+        thirdFolder.addPage(page);
+    }
 
     let trash = folderBuilder.newFolder(4, 'Cestino');
 
