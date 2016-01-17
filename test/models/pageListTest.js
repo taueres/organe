@@ -158,4 +158,71 @@ describe('PageList', function() {
         });
 
     });
+
+    describe('#forEach()', function () {
+        it('should properly loop over pages', function () {
+            let page = {id: 1};
+
+            let pageList = new PageList();
+            pageList.addPage(page);
+
+            pageList.forEach(function (pPage) {
+                assert.equal(page, pPage);
+            });
+        });
+    });
+
+    describe('#sortPage()', function () {
+        it('should throw error with invalid position', function () {
+            let page = {id: 1};
+
+            let pageList = new PageList();
+            pageList.addPage(page);
+
+            assert.throws(function () {
+                pageList.sortPage(page, 1);
+            }, Error);
+        });
+
+        it('should throw error with invalid page', function () {
+            let page = {id: 1};
+            let secondPage = {id: 2};
+
+            let pageList = new PageList();
+            pageList.addPage(page);
+
+            assert.throws(function () {
+                pageList.sortPage(secondPage, 0);
+            }, Error);
+        });
+
+        it('should sort correctly', function () {
+            let page = {id: 1};
+            let secondPage = {id: 2};
+
+            let pageList = new PageList();
+            pageList.addPage(page);
+            pageList.addPage(secondPage);
+
+            pageList.sortPage(page, 1);
+
+            assert.equal(secondPage, pageList.pages[0]);
+            assert.equal(page, pageList.pages[1]);
+        });
+
+        it('should be idempotent', function () {
+            let page = {id: 1};
+            let secondPage = {id: 2};
+
+            let pageList = new PageList();
+            pageList.addPage(page);
+            pageList.addPage(secondPage);
+
+            pageList.sortPage(page, 0);
+            pageList.sortPage(secondPage, 1);
+
+            assert.equal(page, pageList.pages[0]);
+            assert.equal(secondPage, pageList.pages[1]);
+        });
+    });
 });

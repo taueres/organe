@@ -44,7 +44,15 @@ PageList.prototype.forEach = function forEach(fn) {
 };
 
 PageList.prototype.sortPage = function sortPage(page, newPosition) {
+    if (newPosition < 0 || newPosition >= this.pages.length) {
+        throw new Error('newPosition is out of bounds');
+    }
+
     let index = this.pages.indexOf(page);
+    if (-1 === index) {
+        throw new Error('Cannot sort nonexistent page');
+    }
+
     this.pages.splice(index, 1);
     this.pages.splice(newPosition, 0, page);
 };
